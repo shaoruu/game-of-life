@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Game Of Life</title>
+    <link rel="stylesheet" type="text/css" href="styles/main.css" />
+    <link
+      href="https://fonts.googleapis.com/css?family=Libre+Caslon+Display&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div id="title"><img src="assets/Game-of-Life.png" alt="Game of Life" /></div>
+    <div id="root">
+      <div id="canvas"></div>
+      <div id="controls">
+        <div id="brush-canvas"></div>
+        <button id="toggle-btn" onclick="toggleGame()">Start</button>
+        <button id="clear-btn" onclick="clearGame()">Clear</button>
+        <button id="export-btn" onclick="exportData()">Export</button>
+        <input type="button" id="get-file" value="Import" />
+        <input type="file" id="my-file" accept=".json" />
+      </div>
+    </div>
+    <script src="lib/p5.js"></script>
+    <script src="lib/p5.dom.js"></script>
+    <script src="lib/p5.sound.js"></script>
+    <script src="lib/p5.extra.js"></script>
+    <script src="config/config.js"></script>
+    <script src="modules/BaseGrid.js"></script>
+    <script src="modules/BrushCreator.js"></script>
+    <script src="modules/GameOfLife.js"></script>
+    <script src="scripts/main.js"></script>
+  </body>
+</html>

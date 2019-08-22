@@ -1,0 +1,26 @@
+{
+  "name": "first_graphics",
+  "version": "1.0.0",
+  "main": "electron/main.js",
+  "license": "MIT",
+  "scripts": {
+    "start": "electron .",
+    "dev": "nodemon index.js"
+  },
+  "build": {
+    "appId": "com.first_graphics.honors_ai",
+    "win": {
+      "iconUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/38/Escudo_del_Cruz_Azul_AC.svg/2000px-Escudo_del_Cruz_Azul_AC.svg.png"
+    },
+    "directories": {
+      "buildResources": "public"
+    }
+  },
+  "dependencies": {
+    "express": "^4.17.1"
+  },
+  "devDependencies": {
+    "electron": "^6.0.3",
+    "electron-builder": "^21.2.0"
+  }
+}
