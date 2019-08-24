@@ -24,8 +24,10 @@ BrushCreator.prototype.paint = function() {
   if (i < 0 || i >= this.grid.getColumns() || (j < 0 && j >= this.grid.getRows())) return
 
   if (this.sketch.mouseIsPressed) {
-    if (this.sketch.mouseButton === this.sketch.LEFT) this.grid.data[i][j] = 1
-    else this.grid.data[i][j] = 0
+    const isLeft = this.sketch.mouseButton === this.sketch.LEFT
+    const type = isLeft ? 1 : 0
+
+    this.grid.data[i][j] = type
   } else if (this.grid.data[i][j] !== 1) {
     this.sketch.push()
     this.sketch.fill('#6d7682')
@@ -40,8 +42,7 @@ BrushCreator.prototype.updateBrush = function() {
 
   for (let i = -offset; i <= offset; i++) {
     for (let j = -offset; j <= offset; j++)
-      if (this.grid.data[i + offset][j + offset] === 1)
-        BRUSH_SHAPE.data.push({ x: i, y: j })
+      if (this.grid.data[i + offset][j + offset] === 1) BRUSH_SHAPE.data.push({ x: i, y: j })
   }
 }
 

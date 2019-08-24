@@ -10,7 +10,7 @@
       rel="stylesheet"
     />
   </head>
-  <body>
+  <body oncontextmenu="return false;">
     <div id="title"><img src="assets/Game-of-Life.png" alt="Game of Life" /></div>
     <div id="root">
       <div id="canvas"></div>
@@ -23,11 +23,11 @@
         <input type="file" id="my-file" accept=".json" />
       </div>
     </div>
+    <script src="config/config.js"></script>
     <script src="lib/p5.js"></script>
     <script src="lib/p5.dom.js"></script>
     <script src="lib/p5.sound.js"></script>
-    <script src="lib/p5.extra.js"></script>
-    <script src="config/config.js"></script>
+    <script src="lib/utils.js"></script>
     <script src="modules/BaseGrid.js"></script>
     <script src="modules/BrushCreator.js"></script>
     <script src="modules/GameOfLife.js"></script>

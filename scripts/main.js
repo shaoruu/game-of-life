@@ -28,6 +28,7 @@ const MainGame = sketch => {
   sketch.setup = () => {
     const myCanvas = sketch.createCanvas(640, 580)
     myCanvas.parent(mount)
+    myCanvas.attribute('oncontextmenu', 'return false;')
 
     game = new GameOfLife(sketch)
 

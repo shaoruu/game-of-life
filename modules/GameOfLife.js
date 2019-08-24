@@ -23,29 +23,71 @@ GameOfLife.prototype.paint = function() {
 
   if (this.sketch.mouseIsPressed) {
     const BRUSH_DATA = BRUSH_SHAPE.data
+    const isLeft = this.sketch.mouseButton === this.sketch.LEFT
 
-    BRUSH_DATA.forEach(({ x, y }) => {
-      try {
-        const mi = i + x,
-          mj = j + y
-        if (!this.grid.data[mi] || this.grid.data[mi][mj] === 1) return
-        this.grid.data[mi][mj] = 1
-      } catch (e) {
-        console.log(e)
-        return
-      }
-    })
+    if (isLeft) {
+      BRUSH_DATA.forEach(({ x, y }) => {
+        try {
+          const mi = i + x
+          const mj = j + y
+
+          const { x: actualX, y: actualY } = normalizeCoords(
+            mi,
+            mj,
+            this.grid.getRows(),
+            this.grid.getColumns()
+          )
+
+          if (this.grid.data[actualX]) this.grid.data[actualX][actualY] = 1
+        } catch (e) {
+          console.log(e)
+          return
+        }
+      })
+    } else {
+      BRUSH_DATA.forEach(({ x, y }) => {
+        try {
+          const mi = i + x
+          const mj = j + y
+
+          const { x: actualX, y: actualY } = normalizeCoords(
+            mi,
+            mj,
+            this.grid.getRows(),
+            this.grid.getColumns()
+          )
+
+          this.sketch.push()
+          this.sketch.fill('#6d7682')
+          this.sketch.rect(actualX * WIDTH, actualY * WIDTH, WIDTH - 1, WIDTH - 1)
+          this.sketch.pop()
+          this.grid.data[actualX][actualY] = 0
+        } catch (e) {
+          console.log(e)
+          return
+        }
+      })
+    }
   } else {
     const BRUSH_DATA = BRUSH_SHAPE.data
 
     BRUSH_DATA.forEach(({ x, y }) => {
       try {
-        const mi = i + x,
-          mj = j + y
-        if (!this.grid.data[mi] || this.grid.data[mi][mj] === 1) return
+        const mi = i + x
+        const mj = j + y
+
+        const { x: actualX, y: actualY } = normalizeCoords(
+          mi,
+          mj,
+          this.grid.getRows(),
+          this.grid.getColumns()
+        )
+
+        if (this.grid.data[actualX][actualY] === 1) return
+
         this.sketch.push()
         this.sketch.fill('#6d7682')
-        this.sketch.rect(mi * WIDTH, mj * WIDTH, WIDTH - 1, WIDTH - 1)
+        this.sketch.rect(actualX * WIDTH, actualY * WIDTH, WIDTH - 1, WIDTH - 1)
         this.sketch.pop()
       } catch (e) {
         console.log(e)
