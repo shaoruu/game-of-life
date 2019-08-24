@@ -13,19 +13,42 @@
       href="https://fonts.googleapis.com/css?family=Libre+Caslon+Display&display=swap"
       rel="stylesheet"
     />
+    <script src="https://cdn.jsdelivr.net/gh/cferdinandi/smooth-scroll/dist/smooth-scroll.polyfills.min.js"></script>
   </head>
   <body oncontextmenu="return false;">
-    <div id="title"><img src="assets/Game-of-Life.png" alt="Game of Life" /></div>
-    <div id="root">
-      <div id="canvas"></div>
-      <div id="controls">
-        <div id="brush-canvas"></div>
-        <button id="toggle-btn" onclick="toggleGame()">Start</button>
-        <button id="clear-btn" onclick="clearGame()">Clear</button>
-        <button id="export-btn" onclick="exportData()">Export</button>
-        <input type="button" id="get-file" value="Import" />
-        <input type="file" id="my-file" accept=".json" />
+    <div id="landing">
+      <div id="title"><img src="assets/Game-of-Life.png" alt="Game of Life" /></div>
+      <div id="root">
+        <div id="canvas"></div>
+        <div id="controls">
+          <div id="brush-canvas"></div>
+          <button id="toggle-btn" onclick="toggleGame()">Start</button>
+          <button id="clear-btn" onclick="clearGame()">Clear</button>
+          <button id="export-btn" onclick="exportData()">Export</button>
+          <input type="button" id="get-file" value="Import" />
+          <input type="file" id="my-file" accept=".json" />
+        </div>
       </div>
+      <div id="down-arrow" class="bounceDownwards">
+        <img
+          width="40"
+          height="40"
+          alt=""
+          src="http://www.elcom.eu/public/themes/images/svg/arrow-down.svg"
+        />
+      </div>
+    </div>
+    <div id="gallery-wrapper">
+      <div id="up-arrow" class="bounceUpwards">
+        <img
+          id="up-arrow-img"
+          width="40"
+          height="40"
+          alt=""
+          src="http://www.elcom.eu/public/themes/images/svg/arrow-down.svg"
+        />
+      </div>
+      <div id="gallery"></div>
     </div>
     <script src="config/config.js"></script>
     <script src="lib/p5.js"></script>
@@ -35,6 +58,11 @@
     <script src="modules/BaseGrid.js"></script>
     <script src="modules/BrushCreator.js"></script>
     <script src="modules/GameOfLife.js"></script>
-    <script src="scripts/main.js"></script>
+    <script src="scripts/eventCallbacks.js"></script>
+    <script src="scripts/domManip.js"></script>
+    <script src="scripts/runner.js"></script>
+    <script>
+      checkScroll()
+    </script>
   </body>
 </html>

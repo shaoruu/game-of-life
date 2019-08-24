@@ -23,7 +23,7 @@ function BaseGrid(sketch, needNext = true) {
   this.getRows = () => rows
 }
 
-BaseGrid.prototype.set = function(arg) {
+BaseGrid.prototype.refreshAs = function(arg) {
   const columns = this.getColumns()
   const rows = this.getRows()
 
@@ -36,16 +36,42 @@ BaseGrid.prototype.set = function(arg) {
 }
 
 BaseGrid.prototype.setRandom = function() {
-  this.set(() => Number(Math.floor(this.sketch.random(4)) >= 3))
+  this.refreshAs(() => Number(Math.floor(this.sketch.random(4)) >= 3))
 }
 
 BaseGrid.prototype.draw = function() {
   for (let i = 0; i < this.getColumns(); i++) {
     for (let j = 0; j < this.getRows(); j++) {
-      if (this.data[i][j] === 1) this.sketch.fill('#00adb5')
+      if (this.get(i, j) === 1) this.sketch.fill('#00adb5')
       else this.sketch.fill('#393e46')
       this.sketch.stroke('#252525')
       this.sketch.rect(i * WIDTH, j * WIDTH, WIDTH - 1, WIDTH - 1)
     }
   }
+}
+
+BaseGrid.prototype.isRowExist = function(x) {
+  return !!this.data[x]
+}
+
+BaseGrid.prototype.isCellExist = function(x, y) {
+  const result = this.get(x, y)
+  if (typeof result === 'number') return true
+  return false
+}
+
+BaseGrid.prototype.get = function(x, y) {
+  return this.data[x][y]
+}
+
+BaseGrid.prototype.getNext = function(x, y) {
+  return this.next[x][y]
+}
+
+BaseGrid.prototype.set = function(x, y, val) {
+  this.data[x][y] = val
+}
+
+BaseGrid.prototype.setNext = function(x, y, val) {
+  this.next[x][y] = val
 }

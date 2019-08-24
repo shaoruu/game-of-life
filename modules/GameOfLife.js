@@ -20,6 +20,9 @@ GameOfLife.prototype.paint = function() {
   let j = Math.floor(this.sketch.mouseY / WIDTH)
 
   if (i < 0 || i >= this.grid.getColumns() || (j < 0 && j >= this.grid.getRows())) return
+  if (!this.grid.isCellExist(i, j)) {
+    return
+  }
 
   if (this.sketch.mouseIsPressed) {
     const BRUSH_DATA = BRUSH_SHAPE.data
@@ -38,7 +41,7 @@ GameOfLife.prototype.paint = function() {
             this.grid.getColumns()
           )
 
-          if (this.grid.data[actualX]) this.grid.data[actualX][actualY] = 1
+          if (this.grid.isRowExist(actualX)) this.grid.set(actualX, actualY, 1)
         } catch (e) {
           console.log(e)
           return
@@ -61,7 +64,7 @@ GameOfLife.prototype.paint = function() {
           this.sketch.fill('#6d7682')
           this.sketch.rect(actualX * WIDTH, actualY * WIDTH, WIDTH - 1, WIDTH - 1)
           this.sketch.pop()
-          this.grid.data[actualX][actualY] = 0
+          this.grid.set(actualX, actualY, 0)
         } catch (e) {
           console.log(e)
           return
@@ -83,7 +86,7 @@ GameOfLife.prototype.paint = function() {
           this.grid.getColumns()
         )
 
-        if (this.grid.data[actualX][actualY] === 1) return
+        if (this.grid.get(actualX, actualY) === 1) return
 
         this.sketch.push()
         this.sketch.fill('#6d7682')
@@ -117,21 +120,23 @@ GameOfLife.prototype.generate = function() {
           if (my < 0) my = rows - 1
           else if (my >= rows) my = 0
 
-          neighbors += this.grid.data[mx][my]
+          neighbors += this.grid.get(mx, my)
         }
       }
 
       // A little trick to subtract the current cell's state since
       // we added it in the above loop
-      neighbors -= this.grid.data[x][y]
+      neighbors -= this.grid.get(x, y)
+
+      const currVal = this.grid.get(x, y)
       // Rules of Life
-      if (this.grid.data[x][y] == 1 && neighbors < 2) this.grid.next[x][y] = 0
+      if (currVal == 1 && neighbors < 2) this.grid.setNext(x, y, 0)
       // Loneliness
-      else if (this.grid.data[x][y] == 1 && neighbors > 3) this.grid.next[x][y] = 0
+      else if (currVal == 1 && neighbors > 3) this.grid.setNext(x, y, 0)
       // Overpopulation
-      else if (this.grid.data[x][y] == 0 && neighbors == 3) this.grid.next[x][y] = 1
+      else if (currVal == 0 && neighbors == 3) this.grid.setNext(x, y, 1)
       // Reproduction
-      else this.grid.next[x][y] = this.grid.data[x][y] // Stasis
+      else this.grid.setNext(x, y, this.grid.get(x, y))
     }
   }
 
@@ -142,5 +147,9 @@ GameOfLife.prototype.generate = function() {
 }
 
 GameOfLife.prototype.eraseAll = function() {
-  this.grid.set(0)
+  this.grid.refreshAs(0)
+}
+
+GameOfLife.prototype.setGridData = function(data) {
+  this.grid.data = data
 }
