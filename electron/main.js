@@ -21,7 +21,7 @@ function createWindow() {
   // and load the index.html of the app.
   mainWindow.loadFile(
     url.format({
-      pathname: path.join(__dirname, '/../public/index.html')
+      pathname: path.join(__dirname, '/../index.html')
     })
   )
 
