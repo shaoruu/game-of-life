@@ -93,11 +93,12 @@ body {
   margin: 20px 10px;
 }
 
-#controls button:hover,
-#get-file:hover {
-  background-color: #00adb5;
-  box-shadow: 0px 15px 20px #00acb56b;
-  color: #fff;
+#controls > button:hover,
+#get-file:hover,
+.hovered {
+  background-color: #00adb5 !important;
+  box-shadow: 0px 15px 20px #00acb56b !important;
+  color: #fff !important;
   transform: translateY(-7px);
 }
 

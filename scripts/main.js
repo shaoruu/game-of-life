@@ -91,8 +91,37 @@ new p5(Paintbrush)
 /* -------------------------------------------------------------------------- */
 /*                                  LISTENERS                                 */
 /* -------------------------------------------------------------------------- */
-document.getElementById('get-file').onclick = function() {
+const importBtn = document.getElementById('get-file')
+
+;['dragenter', 'dragover', 'dragleave', 'drop'].forEach(eventName => {
+  importBtn.addEventListener(eventName, preventDefaults, false)
+})
+
+function preventDefaults(e) {
+  e.preventDefault()
+  e.stopPropagation()
+}
+
+importBtn.onclick = function() {
   document.getElementById('my-file').click()
+}
+
+importBtn.ondrop = function(e) {
+  let dt = e.dataTransfer
+  let files = dt.files
+
+  importBtn.classList.remove('hovered')
+
+  importData({ target: { files } })
+}
+
+importBtn.ondragover = function(e) {
+  importBtn.classList.add('hovered')
+  e.preventDefault()
+}
+
+importBtn.ondragleave = function(e) {
+  importBtn.classList.remove('hovered')
 }
 
 document.getElementById('my-file').addEventListener('change', importData)
