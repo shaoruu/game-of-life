@@ -41,13 +41,17 @@ function importData(e) {
 /*                             BOUNCY ARROW UTILS                             */
 /* -------------------------------------------------------------------------- */
 function hideDownArrow() {
-  downArrow.style.opacity = 0
   upArrow.style.opacity = 1
+  upArrow.style.cursor = 'pointer'
+  downArrow.style.opacity = 0
+  downArrow.style.cursor = 'default'
 }
 
 function hideUpArrow() {
   downArrow.style.opacity = 1
+  downArrow.style.cursor = 'pointer'
   upArrow.style.opacity = 0
+  upArrow.style.cursor = 'default'
 }
 
 function preventDefaults(e) {

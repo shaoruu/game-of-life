@@ -4,7 +4,10 @@ function GameOfLife(sketch) {
   this.grid = new BaseGrid(sketch)
 
   this.getGridData = () => this.grid.data
-  this.setGridData = data => (this.grid.data = data)
+  this.setGridData = data => {
+    this.grid.data = data
+    this.grid.initNext()
+  }
 }
 
 GameOfLife.prototype.init = function() {
@@ -148,8 +151,4 @@ GameOfLife.prototype.generate = function() {
 
 GameOfLife.prototype.eraseAll = function() {
   this.grid.refreshAs(0)
-}
-
-GameOfLife.prototype.setGridData = function(data) {
-  this.grid.data = data
 }

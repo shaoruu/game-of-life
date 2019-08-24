@@ -24,6 +24,8 @@ BrushCreator.prototype.paint = function() {
   if (i < 0 || i >= this.grid.getColumns() || (j < 0 && j >= this.grid.getRows())) return
 
   if (this.sketch.mouseIsPressed) {
+    if (!this.grid.isCellExist(i, j)) return
+
     const isLeft = this.sketch.mouseButton === this.sketch.LEFT
     const type = isLeft ? 1 : 0
 
@@ -44,12 +46,4 @@ BrushCreator.prototype.updateBrush = function() {
     for (let j = -offset; j <= offset; j++)
       if (this.grid.get(i + offset, j + offset)) BRUSH_SHAPE.data.push({ x: i, y: j })
   }
-}
-
-BrushCreator.prototype.getBrushShape = function() {
-  return this.grid.data
-}
-
-BrushCreator.prototype.setGridData = function(data) {
-  this.grid.data = data
 }

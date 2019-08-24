@@ -1,7 +1,11 @@
-function BaseGrid(sketch, needNext = true) {
+function BaseGrid(sketch, needNext = true, width = WIDTH) {
   // Calculate columns and rows
-  const columns = Math.floor(sketch.width / WIDTH)
-  const rows = Math.floor(sketch.height / WIDTH)
+  const columns = Math.floor(sketch.width / width)
+  const rows = Math.floor(sketch.height / width)
+
+  this.getRows = () => rows
+  this.getColumns = () => columns
+  this.getWidth = () => width
 
   // Wacky way to make a 2D array is JS
   this.data = new Array(columns)
@@ -11,16 +15,10 @@ function BaseGrid(sketch, needNext = true) {
 
   // Going to use multiple 2D arrays and swap them
   if (needNext) {
-    this.next = new Array(columns)
-    for (i = 0; i < columns; i++) {
-      this.next[i] = new Array(rows)
-    }
+    this.initNext()
   }
 
   this.sketch = sketch
-
-  this.getColumns = () => columns
-  this.getRows = () => rows
 }
 
 BaseGrid.prototype.refreshAs = function(arg) {
@@ -40,12 +38,14 @@ BaseGrid.prototype.setRandom = function() {
 }
 
 BaseGrid.prototype.draw = function() {
+  const width = this.getWidth()
+
   for (let i = 0; i < this.getColumns(); i++) {
     for (let j = 0; j < this.getRows(); j++) {
       if (this.get(i, j) === 1) this.sketch.fill('#00adb5')
       else this.sketch.fill('#393e46')
       this.sketch.stroke('#252525')
-      this.sketch.rect(i * WIDTH, j * WIDTH, WIDTH - 1, WIDTH - 1)
+      this.sketch.rect(i * width, j * width, width - 1, width - 1)
     }
   }
 }
@@ -74,4 +74,14 @@ BaseGrid.prototype.set = function(x, y, val) {
 
 BaseGrid.prototype.setNext = function(x, y, val) {
   this.next[x][y] = val
+}
+
+BaseGrid.prototype.initNext = function() {
+  const rows = this.getRows()
+  const columns = this.getColumns()
+
+  this.next = new Array(columns)
+  for (i = 0; i < columns; i++) {
+    this.next[i] = new Array(rows)
+  }
 }
