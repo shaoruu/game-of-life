@@ -172,7 +172,7 @@
 #down-arrow {
   position: fixed;
   bottom: 0;
-  left: 50%;
+  right: 1.5em;
   transform: translateX(-50%);
   margin: auto;
   cursor: pointer;
@@ -182,7 +182,7 @@
 
 #up-arrow {
   position: fixed;
-  bottom: 2em;
+  bottom: 1.5em;
   left: 1.5em;
   /* transform: translateX(-50%); */
   margin: auto;
@@ -215,7 +215,6 @@
     #302b63,
     #0f0c29
   ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-  height: 100vh;
 }
 
 #gallery {
@@ -284,7 +283,7 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  margin: 1em 3em;
+  margin: 1em 1em;
   width: 16em;
   height: 16em;
   background: #222831;
@@ -299,7 +298,7 @@
 }
 
 .pattern-item p {
-  height: 10%;
+  height: 8%;
   color: #eeeeee;
   font-weight: bold;
   text-align: center;
