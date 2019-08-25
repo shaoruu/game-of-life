@@ -78,7 +78,7 @@ GALLERY_DATA.brushes.forEach(({ name, data }) => {
 
   const temp = sketch => {
     sketch.setup = () => {
-      const canvas = sketch.createCanvas(100, 100)
+      const canvas = sketch.createCanvas(BRUSH_WIDTH, BRUSH_HEIGHT)
       canvas.parent(canvasId)
       canvas.class('brush-canvas')
 
