@@ -1,3 +1,7 @@
+html {
+  background: rgb(54, 54, 54);
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -32,7 +36,7 @@
 }
 
 #title img {
-  width: 50em;
+  width: 60vw;
 }
 
 #root {
@@ -71,7 +75,7 @@
 #controls button,
 #get-file {
   width: 140px;
-  height: 45px;
+  height: 6vh;
   font-size: 11px;
   text-transform: uppercase;
   letter-spacing: 2.5px;
@@ -84,7 +88,7 @@
   transition: all 0.3s ease 0s;
   cursor: pointer;
   outline: none;
-  margin: 20px 10px;
+  margin: 2vh 10px;
 }
 
 #controls > button:hover,
@@ -98,7 +102,7 @@
 
 #frame-range-wrapper {
   width: 140px;
-  height: 45px;
+  height: 6vh;
   font-size: 11px;
   text-transform: uppercase;
   letter-spacing: 2.5px;
@@ -166,7 +170,7 @@
 .brush-canvas {
   border: 2px solid #007065;
   padding: 1px;
-  margin-bottom: 20px;
+  margin-bottom: 2vh;
 }
 
 #down-arrow {
