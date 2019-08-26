@@ -42,8 +42,8 @@ BaseGrid.prototype.draw = function() {
 
   for (let i = 0; i < this.getColumns(); i++) {
     for (let j = 0; j < this.getRows(); j++) {
-      if (this.get(i, j) === 1) this.sketch.fill('#00adb5')
-      else this.sketch.fill('#393e46')
+      if (this.get(i, j) === 1) this.sketch.fill('#DA291C')
+      else this.sketch.fill('#FBE122')
       this.sketch.stroke('#252525')
       this.sketch.rect(i * width, j * width, width - 1, width - 1)
     }
