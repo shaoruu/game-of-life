@@ -1,5 +1,5 @@
 html {
-  background: rgb(54, 54, 54);
+  background: #610e18;
 }
 
 * {
@@ -13,11 +13,7 @@ html {
   display: flex;
   flex-direction: column;
   background: #ed213a; /* fallback for old browsers */
-  background: -webkit-linear-gradient(
-    to right,
-    #93291e,
-    #ed213a
-  ); /* Chrome 10-25, Safari 5.1-6 */
+  background: -webkit-linear-gradient(to right, #93291e, #ed213a); /* Chrome 10-25, Safari 5.1-6 */
   background: linear-gradient(
     to right,
     #93291e,
@@ -34,7 +30,7 @@ html {
 }
 
 #title img {
-  width: 60vw;
+  max-width: 800px;
 }
 
 #root {
@@ -56,6 +52,7 @@ html {
 #game {
   border: 2px solid #fbe122;
   padding: 1px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
 #controls {
@@ -204,19 +201,10 @@ html {
 }
 
 #gallery-wrapper {
-  background: #0f0c29; /* fallback for old browsers */
-  background: -webkit-linear-gradient(
-    to right,
-    #24243e,
-    #302b63,
-    #0f0c29
-  ); /* Chrome 10-25, Safari 5.1-6 */
-  background: linear-gradient(
-    to right,
-    #24243e,
-    #302b63,
-    #0f0c29
-  ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  background-image: url(../assets/MAN_UNITED.jpg);
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: center;
 }
 
 #gallery {
@@ -277,6 +265,7 @@ html {
   margin: auto;
   justify-content: space-around;
   align-items: space-around;
+  flex-wrap: wrap;
   cursor: pointer;
 }
 
