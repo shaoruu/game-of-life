@@ -80,7 +80,7 @@ GALLERY_DATA.brushes.forEach(({ name, data }) => {
     sketch.setup = () => {
       const canvas = sketch.createCanvas(BRUSH_WIDTH, BRUSH_HEIGHT)
       canvas.parent(canvasId)
-      canvas.class('brush-canvas')
+      canvas.class('brush-demo-canvas')
 
       const grid = new BaseGrid(sketch, false)
       grid.data = JSON.parse(JSON.stringify(data))
@@ -121,7 +121,7 @@ GALLERY_DATA.patterns.forEach(({ name, data }) => {
     sketch.setup = () => {
       const canvas = sketch.createCanvas(GAME_WIDTH * 0.3, GAME_HEIGHT * 0.3)
       canvas.parent(canvasId)
-      canvas.class('brush-canvas')
+      canvas.class('pattern-canvas')
 
       const grid = new BaseGrid(sketch, false, WIDTH * 0.3)
       grid.data = JSON.parse(JSON.stringify(data))

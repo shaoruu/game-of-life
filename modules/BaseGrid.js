@@ -42,9 +42,9 @@ BaseGrid.prototype.draw = function() {
 
   for (let i = 0; i < this.getColumns(); i++) {
     for (let j = 0; j < this.getRows(); j++) {
-      if (this.get(i, j) === 1) this.sketch.fill('#DA291C')
-      else this.sketch.fill('#FBE122')
-      this.sketch.stroke('#252525')
+      if (this.get(i, j) === 1) this.sketch.fill(ALIVE_COLOR)
+      else this.sketch.fill(DEAD_COLOR)
+      this.sketch.stroke(GRID_LINE_COLOR)
       this.sketch.rect(i * width, j * width, width - 1, width - 1)
     }
   }

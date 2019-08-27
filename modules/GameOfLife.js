@@ -64,7 +64,7 @@ GameOfLife.prototype.paint = function() {
           )
 
           this.sketch.push()
-          this.sketch.fill('#cfb700')
+          this.sketch.fill(EMPTY_HOVER_COLOR)
           this.sketch.rect(actualX * WIDTH, actualY * WIDTH, WIDTH - 1, WIDTH - 1)
           this.sketch.pop()
           this.grid.set(actualX, actualY, 0)
@@ -92,7 +92,7 @@ GameOfLife.prototype.paint = function() {
         if (this.grid.get(actualX, actualY) === 1) return
 
         this.sketch.push()
-        this.sketch.fill('#cfb700')
+        this.sketch.fill(EMPTY_HOVER_COLOR)
         this.sketch.rect(actualX * WIDTH, actualY * WIDTH, WIDTH - 1, WIDTH - 1)
         this.sketch.pop()
       } catch (e) {

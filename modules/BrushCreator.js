@@ -32,7 +32,7 @@ BrushCreator.prototype.paint = function() {
     this.grid.set(i, j, type)
   } else if (this.grid.get(i, j) !== 1) {
     this.sketch.push()
-    this.sketch.fill('#cfb700')
+    this.sketch.fill(EMPTY_HOVER_COLOR)
     this.sketch.rect(i * WIDTH, j * WIDTH, WIDTH - 1, WIDTH - 1)
     this.sketch.pop()
   }

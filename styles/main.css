@@ -235,6 +235,11 @@ html {
   cursor: pointer;
 }
 
+.brush-demo-canvas {
+  border: 2px solid #fbe122;
+  padding: 1px;
+}
+
 .brush-item {
   display: flex;
   flex-direction: column;
@@ -258,6 +263,7 @@ html {
   height: 15%;
   color: #eeeeee;
   text-align: center;
+  margin-top: 5px;
 }
 
 #pattern-gallery {
@@ -269,12 +275,18 @@ html {
   cursor: pointer;
 }
 
+.pattern-canvas {
+  border: 2px solid #da291c;
+  padding: 1px;
+}
+
 .pattern-item {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   margin: 1em 1em;
+  padding: 0.5em;
   width: 16em;
   height: 16em;
   background: #222831;
@@ -293,6 +305,7 @@ html {
   color: #eeeeee;
   font-weight: bold;
   text-align: center;
+  margin-top: 5px;
 }
 
 .ripple {
