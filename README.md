@@ -1,25 +1,31 @@
-# Game Of Life
+# Game Of Life :dromedary_camel:
 
-A game of life clone made for my Honors AI course.
+A Conway's Game of Life.
 
-## Installation
+## :racehorse: Installation
 
 ```bash
 # install dependencies
 yarn
 
-# 1. standalone app (verison 1)
+# 1. standalone app (version 1 w/ electron)
 yarn run start
 
-# 2. web version (version 2)
+# 2. web version (version 2 w/ express)
 yarn run dev
 ```
 
-If you ran the web version, visit `localhost:3000`.
+:pencil2: If you ran the web version, visit `localhost:3000`.
 
-## Screenshots
+## :milky_way: Screenshots
 
-![](https://i.imgur.com/fKVaw11.jpg)
+_Basic gameplay_
+![](https://i.imgur.com/QSwDIS7.png)
 
-Ability to change brush pattern.
-![](https://i.imgur.com/4sAXGQQ.jpg)
+_Epic brushes_
+![](https://i.imgur.com/6gkwdKU.png)
+
+## :crocodile: Resources
+
+- [Conway's Game of Life](https://en.wikipedia.org/wiki/Conway%27s_Game_of_Life)
+- [P5JS](https://p5js.org)
