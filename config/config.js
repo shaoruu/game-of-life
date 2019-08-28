@@ -10,7 +10,7 @@ const BRUSH_SHAPE = {
 const GAME_ROW = 29
 const GAME_COLUMN = 32
 
-const WIDTH = window.innerHeight * 0.025
+const WIDTH = document.getElementById('canvas').offsetWidth * 0.035
 
 const GAME_WIDTH = GAME_COLUMN * WIDTH
 const GAME_HEIGHT = GAME_ROW * WIDTH

@@ -13,7 +13,11 @@ html {
   display: flex;
   flex-direction: column;
   background: #ed213a; /* fallback for old browsers */
-  background: -webkit-linear-gradient(to right, #93291e, #ed213a); /* Chrome 10-25, Safari 5.1-6 */
+  background: -webkit-linear-gradient(
+    to right,
+    #93291e,
+    #ed213a
+  ); /* Chrome 10-25, Safari 5.1-6 */
   background: linear-gradient(
     to right,
     #93291e,
@@ -42,7 +46,7 @@ html {
 }
 
 #canvas {
-  max-width: 1000px;
+  width: 500px;
   display: flex;
   justify-content: center;
   align-items: center;
